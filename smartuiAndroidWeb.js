@@ -14,16 +14,14 @@ const accessKey = process.env.LT_ACCESS_KEY || "YOUY_LT_ACCESS_KEY";
  * Capabilities to be passed while running the test.
  */
 const desiredCapabilities = {
-  build: "NodeJS - Android - Web",
   name: "Sample Test NodeJS-Web",
+  build: "NodeJS - Android - Web",
   deviceName: "Galaxy S20",
   platformName: "Android",
   platformVersion: "11",
   isRealMobile: true,
   video: true,
   visual: true,
-  // network: true,
-  // console: true,
   "smartUI.project": "Real-Device-Project-Android-Web"   // Enter your smartUI Project name
   // "smartUI.build": ""    // Enter your smartUI build name
 };

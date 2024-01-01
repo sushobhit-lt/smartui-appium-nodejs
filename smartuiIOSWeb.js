@@ -24,8 +24,6 @@ const desiredCapabilities = {
   isRealMobile: true,
   video: true,
   visual: true,
-  network: true,
-  console: true,
   "smartUI.project": "Real-Device-Project-IOS-Web-1"     // Enter your smartUI Project name
   // "smartUI.build": ""    // Enter your smartUI build name
 };
