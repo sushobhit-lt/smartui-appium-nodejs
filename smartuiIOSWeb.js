@@ -5,12 +5,12 @@ var asserter = wd.asserters;
 /**
  * Username to be used for running the test.
  */
-const username = process.env.LT_USERNAME || "YOUY_LT_USERNAME";
+const username = process.env.LT_USERNAME || "YOUR_LT_USERNAME";
 
 /**
  * The access key to be used for running test test.
  */
-const accessKey = process.env.LT_ACCESS_KEY || "YOUY_LT_ACCESS_KEY";
+const accessKey = process.env.LT_ACCESS_KEY || "YOUR_LT_ACCESS_KEY";
 
 /**
  * Capabilities to be passed while running the test.
@@ -24,7 +24,7 @@ const desiredCapabilities = {
   isRealMobile: true,
   video: true,
   visual: true,
-  "smartUI.project": "Real-Device-Project-IOS-Web-1"     // Enter your smartUI Project name
+  "smartUI.project": "Real-Device-Project-IOS-Web"     // Enter your smartUI Project name
   // "smartUI.build": ""    // Enter your smartUI build name
 };
 
