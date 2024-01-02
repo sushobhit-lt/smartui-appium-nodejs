@@ -117,42 +117,49 @@ curl -u "YOUR_LAMBDATEST_USERNAME:YOUR_LAMBDATEST_ACCESS_KEY" -X POST "https://m
 
 Once you are done with the above-mentioned steps, you can initiate your first JUnit test on LambdaTest.
 
-Test Scenario: Check out [Android.js](https://github.com/LambdaTest/smartui-appium-nodejs/blob/master/Android.js) file to view the sample test script for android and [iOS.js](https://github.com/LambdaTest/smartui-appium-nodejs/blob/master/IOS.js) for iOS.
+Test Scenario: Check out [smartuiAndroid.js](https://github.com/LambdaTest/smartui-appium-nodejs/blob/master/smartuiAndroid.js) file to view the sample test script for android and [smartuiIOS.js](https://github.com/LambdaTest/smartui-appium-nodejs/blob/master/smartuiIOS.js) for iOS.
 
 ### Configuring Your Test Capabilities
 
 You can update your custom capabilities in the scripts. In our sample script, we are passing platform name, platform version, device name and app url (generated earlier) along with other capabilities like build name and test name via capabilities object. The capabilities object in the sample code for a single test are defined as:
 
-**iOS:**
-
-```javascript
-desired_capabilities = {
-  deviceName: "iPhone 12",
-  platformVersion: "14",
-  platformName: "iOS",
-  isRealMobile: true,
-  app: "lt://", //Enter the app_url here
-  visual: true,
-  video: true,
-  build: "NodeJS Vanilla - iOS",
-  name: "Sample Test - NodeJS",
-  "smartUI.project": "smartui-appium-nodejs",
-};
-```
 **Android:**
 
 ```javascript
 desired_capabilities = {
+  app: "lt://proverbial-android",  // Enter the app_url here
+  build: "NodeJS - Android_App",
+  name: "Sample Test NodeJS-Android",
   deviceName: "Galaxy S20",
-  platformVersion: "11",
-  platformName: "android",
   isRealMobile: true,
-  app: "lt://", //Enter the app_url here
-  visual: true,
+  platformName: "android",
+  platformVersion: "11",
   video: true,
-  build: "NodeJS Vanilla - Android",
-  name: "Sample Test - NodeJS",
-  "smartUI.project": "smartui-appium-nodejs",
+  visual: true,
+  network: true,
+  console: true,
+  "smartUI.project": "Real-Device-Project-Android", // Enter your smartUI Project name
+  // "smartUI.build": ""    // Enter your smartUI build name
+
+};
+```
+**iOS:**
+
+```javascript
+desired_capabilities = {
+  app: "lt://proverbial-ios", //Enter the app_url here
+  deviceId: "iPhone 14",
+  platformVersion: "16",
+  platformName: "IOS",
+  build: "NodeJS-IOS_App",
+  name: "Sample Test NodeJS-IOS",
+  isRealMobile: true,
+  video: true,
+  visual: true,
+  network: true,
+  console: true,
+  "smartUI.project": "Real-Device-Project-IOS", // Enter your smartUI Project name
+  // "smartUI.build": ""    // Enter your smartUI build name
 };
 ```
 
@@ -174,16 +181,27 @@ Execute the following command to run your test on LambdaTest platform:
 **Android:**
 
 ```bash
-node smartui-Android.js
+node smartuiAndroid.js
+```
+
+**Android Web:**
+
+```bash
+node smartuiAndroidWeb.js
 ```
 
 **IOS:**
 
 ```bash
-node smartui-IOS.js
+node smartuiIOS.js
+```
+**IOS Web:**
+
+```bash
+node smartuiIOSWeb.js
 ```
 
-**Info:** Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on the :link: [LambdaTest App Automation Dashboard](https://appautomation.lambdatest.com/build/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-nodejs).
+**Info:** Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on the :link: [LambdaTest App Automation Dashboard](https://appautomation.lambdatest.com/build/?utm_source=github&utm_medium=repo&utm_campaign=smartui-appium-nodejs).
 
 ## Additional Links
 
@@ -196,12 +214,12 @@ node smartui-IOS.js
 Visit the following links to learn more about LambdaTest's features, setup and tutorials around test automation, mobile app testing, responsive testing, and manual testing.
 
 - [LambdaTest Documentation](https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-nodejs)
-- [LambdaTest Blog](https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-nodejs)
+- [LambdaTest Blog](https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=smartui-appium-nodejs)
 - [LambdaTest Learning Hub](https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-nodejs)
 
 ## LambdaTest Community :busts_in_silhouette:
 
-The [LambdaTest Community](https://community.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-nodejs) allows people to interact with tech enthusiasts. Connect, ask questions, and learn from tech-savvy people. Discuss best practises in web development, testing, and DevOps with professionals from across the globe 🌎
+The [LambdaTest Community](https://community.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=smartui-appium-nodejs) allows people to interact with tech enthusiasts. Connect, ask questions, and learn from tech-savvy people. Discuss best practises in web development, testing, and DevOps with professionals from across the globe 🌎
 
 ## What's New At LambdaTest ❓
 
@@ -209,7 +227,7 @@ To stay updated with the latest features and product add-ons, visit [Changelog](
 
 ## About LambdaTest
 
-[LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-nodejs) is a leading test execution and orchestration platform that is fast, reliable, scalable, and secure. It allows users to run both manual and automated testing of web and mobile apps across 3000+ different browsers, operating systems, and real device combinations. Using LambdaTest, businesses can ensure quicker developer feedback and hence achieve faster go to market. Over 500 enterprises and 1 Million + users across 130+ countries rely on LambdaTest for their testing needs.
+[LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=smartui-appium-nodejs) is a leading test execution and orchestration platform that is fast, reliable, scalable, and secure. It allows users to run both manual and automated testing of web and mobile apps across 3000+ different browsers, operating systems, and real device combinations. Using LambdaTest, businesses can ensure quicker developer feedback and hence achieve faster go to market. Over 500 enterprises and 1 Million + users across 130+ countries rely on LambdaTest for their testing needs.
 
 ### Features
 
@@ -230,5 +248,5 @@ To stay updated with the latest features and product add-ons, visit [Changelog](
 
 ## We are here to help you :headphones:
 
-- Got a query? we are available 24x7 to help. [Contact Us](mailto:support@lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-nodejs)
-- For more info, visit - [LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-nodejs)
+- Got a query? we are available 24x7 to help. [Contact Us](mailto:support@lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=smartui-appium-nodejs)
+- For more info, visit - [LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=smartui-appium-nodejs)
