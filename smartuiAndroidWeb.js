@@ -16,19 +16,17 @@ const accessKey = process.env.LT_ACCESS_KEY || "YOUR_LT_ACCESS_KEY";
 const desiredCapabilities = {
   name: "Sample Test NodeJS-Web",
   build: "NodeJS - Android - Web",
-  deviceName: "Galaxy S20",
+  deviceName: ".*",
   platformName: "Android",
-  platformVersion: "11",
   isRealMobile: true,
   video: true,
-  visual: true,
-  "smartUI.project": "Real-Device-Project-Android-Web"   // Enter your smartUI Project name
-  // "smartUI.build": ""    // Enter your smartUI build name
+  visual: false,
+  "smartUI.project": "real-device-full-page-stage-testing",
+  "smartUI.build": "dev-android"    
 };
-
-const driver = wd.promiseRemote(
-  `https://${username}:${accessKey}@mobile-hub.lambdatest.com/wd/hub`
-);
+let url = `https://${username}:${accessKey}@mobile-hub-sushobhit-real-dev.lambdatestinternal.com/wd/hub`
+// url = `https://${username}:${accessKey}@stage-mobile-hub.lambdatestinternal.com/wd/hub`
+const driver = wd.promiseRemote(url);
 
 /**
  * Run an Android Web test.
@@ -36,11 +34,17 @@ const driver = wd.promiseRemote(
 
 async function runSmartUIAndroidWebTest() {
   try {
+    console.log(" url : ", url);
+
     await driver.init(desiredCapabilities);
-    await driver.get("https://www.lambdatest.com");
-    await driver.execute(`smartui.takeScreenshot=<Name of your Screenshot>`);
-    console.log("Screenshot Captured");
-    // Quit driver after successful execution
+    await driver.get("https://alvarotrigo.com/fullPage/docs/");
+
+    let config = {
+      fullPage: true,
+      screenshotName:"fullPage-docs"
+    }
+    let output = await driver.execute(`smartui.takeScreenshot`, config);
+    console.log(" output : ", output);
     driver.execute("lambda-status=passed");
     await driver.quit();
     console.log("Driver quit successfully.");
